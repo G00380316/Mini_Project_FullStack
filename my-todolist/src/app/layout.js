@@ -2,7 +2,7 @@ import './globals.css';
 
 
 export const metadata = {
-  title: 'ToDo List',
+  title: 'ToDoList',
   description: 'Created by Johnson and Enoch',
 }
 
