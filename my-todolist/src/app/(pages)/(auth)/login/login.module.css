@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(#34495E,#395067);
+    background-size: cover;
+    background-position: center;
+}

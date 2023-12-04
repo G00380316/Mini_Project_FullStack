@@ -12,9 +12,6 @@ export default function Nav() {
             <Link href='/task'><p>Tasks</p></Link>
             <Link href='/calender'><p>Calender</p></Link>
             </nav>
-            <div>
-                <h1>Starting making Tasks today</h1>
-            </div>
         </section>
         
     )
