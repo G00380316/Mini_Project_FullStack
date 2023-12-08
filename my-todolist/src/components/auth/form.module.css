@@ -55,7 +55,6 @@ padding: 15px;
     text-transform: uppercase;
     overflow: hidden;
     transition: all .5s;
-    margin-top: 40px;
     letter-spacing: 4px;
     color: #03e9f4;
 }
@@ -68,4 +67,30 @@ padding: 15px;
     0 0 25px #03e9f4,
     0 0 50px #03e9f4,
     0 0 100px #03e9f4;
+}
+
+.form div .error {
+    background: #c51244 ;
+    border-radius: 4px ;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 200px;
+    margin:10px 167px;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    transition: all 0.8s ease;
+}
+
+.p {
+    border-bottom: 2px solid black;
+}
+
+.link {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+}
+
+form .link {
+    justify-content: space-between;
 }

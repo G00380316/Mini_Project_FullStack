@@ -2,7 +2,8 @@
 
 import styles from "@/components/auth/form.module.css";
 import { useState } from "react";
-//import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function regForm() {
 
@@ -11,7 +12,7 @@ export default function regForm() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    //const router = useRouter();
+    const router = useRouter();
     console.log(name);
     console.log(email);
     console.log(password);
@@ -19,12 +20,12 @@ export default function regForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setError("");
+
         if (!name || !email || !password) {
             setError("All fields are necessary");
             return;
         }
-        
-        setError("");
 
         try {
             const res = await fetch('api/register', {
@@ -40,9 +41,10 @@ export default function regForm() {
             if (res.ok) {
                 const form = e.target;
                 form.reset();
-                //router.push("/login");
+                router.push("/login");
             } else {
-                console.log("Error registraiton failed", error);
+                setError("User Exists")
+                console.log("Error registraiton failed, ", error);
             }
         } catch (error) {
             console.log("Error whilst Registration: ", error);
@@ -77,6 +79,10 @@ return (
         <div className={styles.error}>
         {error}
         </div>)}
+        </div>
+        <div className ={styles.link}>
+            <Link href='/login'><p className={styles.p}>Login</p></Link>
+            <Link href='/'><p className={styles.p}>Go Home</p></Link>
         </div>
     </form>
 </div>
