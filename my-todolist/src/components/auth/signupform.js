@@ -23,27 +23,10 @@ export default function regForm() {
             setError("All fields are necessary");
             return;
         }
+        
+        setError("");
 
         try {
-            const resUserExists = await fetch('api/userCheck', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email }),
-            });
-
-            const { user } = await resUserExists.json();
-            console.log("This is user: ", user);
-
-            if (user) {
-                setError("User already exists");
-                form.reset();
-                console.log(error);
-                return;
-            }
-            
-
             const res = await fetch('api/register', {
                 method: "POST",
                 headers: {
@@ -57,7 +40,7 @@ export default function regForm() {
             if (res.ok) {
                 const form = e.target;
                 form.reset();
-               // router.push("/login");
+                //router.push("/login");
             } else {
                 console.log("Error registraiton failed", error);
             }

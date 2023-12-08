@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     try {
-        const { name, email, password } = await req.body;
+        const { name, email, hashedPassword } = await req.body;
         await connectMongoDB();
-        const newUser = await User.create({ name, email, password });
+        const newUser = await User.create({ name, email, hashedPassword });
         
         res.status(201).json(newUser);
         } catch (error) {
