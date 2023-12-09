@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 
 import { connectMongoDB } from "./lib/mongo.js";
 import regRouter from "./routes/register.js";
+import taskRouter from "./routes/task.js"
 
 
 dotenv.config();
@@ -22,6 +23,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/register', regRouter);
+
+app.use("/task", taskRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
