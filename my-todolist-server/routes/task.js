@@ -1,6 +1,6 @@
-import { json } from "body-parser";
-import Task from "../models/task";
-import { connectMongo } from "mongoose";
+import Task from "../models/task.js";
+import { connectMongoDB } from "../lib/mongo.js";
+import router from "./register.js";
 
 router.post('/', async (req, res) => {
     try {
@@ -16,6 +16,9 @@ router.post('/', async (req, res) => {
     }
 )
 
+export default router;
+
+/*
 router.post('/searchtask', async (req, res) => {
     try {
         await connectMongoDB();
@@ -32,4 +35,4 @@ router.post('/searchtask', async (req, res) => {
             return res.status(500).json({ error: `Internal Sever Error`});
     }
     
-)
+)*/

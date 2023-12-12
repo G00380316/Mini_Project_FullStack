@@ -25,4 +25,4 @@ const TaskSchema = new Schema({
 );
 
 const Task = models.Task || mongoose.model("Taskdb", TaskSchema);
-export default User;
+export default Task;

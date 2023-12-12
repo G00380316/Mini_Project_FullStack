@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/register', regRouter);
 
-app.use("/task", taskRouter);
+app.use('/task', taskRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
