@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
 try {
     
-    const { email, password } = await req.json();í
+    const { email, password } = await req.json();
     const hashedPassword = password;
 
     const resUserExists = await fetch("http://localhost:5000/auth/userCheck", {
