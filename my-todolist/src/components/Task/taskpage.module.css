@@ -10,6 +10,7 @@
     text-transform: uppercase;
     color: #f1f1f1;
     padding: 20px;
+    margin-right: 35px;
     }
 
     .note {
@@ -66,5 +67,5 @@
     font-size: 16px;
     color: #f1f1f1;
     border-top: 1px solid #474747;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     }
