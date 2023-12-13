@@ -1,20 +1,18 @@
-import Task from "../models/task.js";
 import { connectMongoDB } from "../lib/mongo.js";
-import router from "./register.js";
+import router from "./auth.js";
 
-router.post('/', async (req, res) => {
-    try {
-        const { name, email, hashedPassword } = await req.body;
-        await connectMongoDB();
-        const newUser = await User.create({ name, email, hashedPassword });
-        
-        res.status(201).json(newUser);
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ error: 'Internal Server Error' });
-        }
-    }
-)
+router.post("/", async (req, res) => {
+  try {
+    const { name, email, hashedPassword } = await req.body;
+    await connectMongoDB();
+    const newUser = await User.create({ name, email, hashedPassword });
+
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 export default router;
 

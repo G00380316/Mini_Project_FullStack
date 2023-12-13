@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 export async function POST(req) {
     try {
         const { name, email, password } = await req.json();
-        const resUserExists = await fetch("http://localhost:5000/register/userCheck", {
+        const resUserExists = await fetch("http://localhost:5000/auth/userCheck", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export async function POST(req) {
     
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const res = await fetch("http://localhost:5000/register/", {
+        const res = await fetch("http://localhost:5000/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

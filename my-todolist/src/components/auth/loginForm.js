@@ -4,8 +4,8 @@ import React from 'react'
 import styles from "@/components/auth/form.module.css";
 import Link from 'next/link';
 import { useState } from "react";
-//import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation";
+import { NextResponse } from 'next/server';
 
 
 export default function loginForm() {
@@ -19,20 +19,38 @@ export default function loginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            /*const res = await signIn("credentials", {
-                email, password, redirect: false
-            });
+        setError("");
 
-            if (res.error) {
-                setError("Invalid Credentials");
-                return;
-            }*/
-
-            router.replace("/");
+        if (!email || !password) {
+            setError("All fields are necessary");
+            return;
         }
-        catch (error) {
-            console.log(error);
+
+        try {
+            const res = await fetch('api/auth/login', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email, password
+                }),
+            });
+            
+            const user = await res.json();
+            
+            if (user.userToken) {
+                const form = e.target;
+                form.reset();
+                router.push("/");
+                return NextResponse.json({ user }, { status: 201 });
+            } else {
+                setError("User doesn't exist, try again");
+                console.log("Error registraiton failed, ", error);
+                return NextResponse.json({ error }, { status: 500 });
+            }
+        } catch (error) {
+            console.log("Error whilst Signing in: ", error);
         }
     };
 return (
