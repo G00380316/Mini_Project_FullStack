@@ -42,7 +42,7 @@ export default function loginForm() {
             if (user.userToken) {
                 const form = e.target;
                 form.reset();
-                router.push("/");
+                router.push("/task");
                 return NextResponse.json({ user }, { status: 201 });
             } else {
                 setError("User doesn't exist, try again");

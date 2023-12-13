@@ -41,7 +41,7 @@ export default function regForm() {
             if (res.ok) {
                 const form = e.target;
                 form.reset();
-                router.push("/login");
+                router.push("/");
             } else {
                 setError("User Exists")
                 console.log("Error registraiton failed, ", error);

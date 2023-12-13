@@ -1,13 +1,10 @@
 import styles from "./page.module.css";
-import Navbar from "@/components/navbar/nav";
+import LoginForm from "@/components/auth/loginForm";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Navbar />
-      <div className={styles.div}>
-        <h1>Starting making Tasks today</h1>
-      </div>
-    </main>
+    <div className={styles.container}>
+      <LoginForm />
+    </div>
   );
 }
